@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { MedicinesService } from '../services/medicines.service';
 
-import { Medicine, MedicineSchema } from '../schema/medicine.schema';
+import { Medicine, MedicineSchema } from '../../schemas/medicine.schema';
 
 import { MedicinesController } from '../controller/medicines.controller';
 

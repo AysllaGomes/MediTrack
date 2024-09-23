@@ -3,16 +3,22 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppService } from '../services/app.service';
 
+import { environment } from '../../config/environment';
+
 import { AppController } from '../controllers/app.controller';
 
+import { UserModule } from '../../user/module/user.module';
 import { MedicinesModule } from '../../medicines/module/medicines.module';
 import { NotificationsModule } from '../../notifications/module/notifications.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/medireminder'),
+    MongooseModule.forRoot(
+      environment.db.uri
+    ),
     MedicinesModule,
-    NotificationsModule
+    NotificationsModule,
+    UserModule,
   ],
   controllers: [
     AppController

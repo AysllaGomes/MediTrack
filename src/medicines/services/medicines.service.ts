@@ -2,7 +2,7 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import { Medicine } from '../schema/medicine.schema';
+import { Medicine } from '../../schemas/medicine.schema';
 
 import { UpdateMedicineDto } from '../models/dto/update-medicine.dto';
 import { CreateMedicineDto } from '../models/dto/create-medicine.dto';
