@@ -15,13 +15,13 @@ export class User extends Document {
   @Prop({ required: true })
   telefone: string;
 
-  @Prop({ type: Date, required: true })
+  @Prop({ type: Date, required: true, unique: true })
   dataNascimento: Date;
 
   @Prop({ default: true })
   status: boolean;
 
-  @Prop({ default: Date.now })
+  @Prop({ default: Date.now, immutable: true })
   tsCriacao: Date;
 
   @Prop({ default: Date.now })

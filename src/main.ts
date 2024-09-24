@@ -10,4 +10,4 @@ async function bootstrap() {
   await app.listen(environment.app.port);
 }
 
-bootstrap();
+bootstrap().then();

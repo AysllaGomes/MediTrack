@@ -3,6 +3,9 @@ import { Controller, Post, Body, Get, Param, Put } from '@nestjs/common';
 import { UserService } from '../service/user.service';
 
 import { CreateUserDto } from '../models/create-user.dto';
+import { UpdateUserDto } from '../models/update-user.dto';
+
+import { ValidateObjectIdPipe } from '../../shared/pipes/ValidateObjectId.pipe';
 
 @Controller('users')
 export class UserController {
@@ -19,12 +22,15 @@ export class UserController {
   }
 
   @Get(':id')
-  findById(@Param('id') id: string) {
+  findById(@Param('id', ValidateObjectIdPipe) id: string) {
     return this.userService.findById(id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: any) {
+  update(
+    @Param('id', ValidateObjectIdPipe) id: string,
+    @Body() updateUserDto: UpdateUserDto
+  ) {
     return this.userService.update(id, updateUserDto);
   }
 }
