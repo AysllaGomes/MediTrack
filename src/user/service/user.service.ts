@@ -1,7 +1,7 @@
 import { Model } from 'mongoose';
 
-import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 import { User } from '../../schemas/user.schema';
 
@@ -12,7 +12,6 @@ export class UserService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    // Verifica duplicidade antes de tentar salvar
     await this.checkForDuplicate(createUserDto);
 
     const createdUser = new this.userModel(createUserDto);

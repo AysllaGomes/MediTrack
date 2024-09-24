@@ -15,7 +15,7 @@ export class User extends Document {
   @Prop({ required: true })
   telefone: string;
 
-  @Prop({ type: Date, required: true, unique: true })
+  @Prop({ type: Date, required: true })
   dataNascimento: Date;
 
   @Prop({ default: true })
