@@ -5,7 +5,7 @@ export const environment: IEnvironment = {
     port: 3000,
   },
   db: {
-    uri: process.env.BD_URI || 'mongodb://localhost/medireminder',
+    uri: process.env.DB_URI,
   },
   isValid(): boolean {
     return true;
