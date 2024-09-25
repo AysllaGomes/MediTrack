@@ -35,6 +35,10 @@ export class UserService {
     return this.userModel.findByIdAndUpdate(id, updateUserDto, { new: true }).exec();
   }
 
+  async remove(id: string) {
+    return this.userModel.findByIdAndDelete(id).exec();
+  }
+
   private async checkForDuplicate(createUserDto: CreateUserDto): Promise<void> {
     const { cpf, email } = createUserDto;
 
